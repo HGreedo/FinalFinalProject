@@ -1,0 +1,39 @@
+{
+  "name": "oregon-fcb",
+  "version": "1.0.0",
+  "description": "an encrypted website where small brands are able to connect with boutiques",
+  "main": "server.js",
+  "engines": {
+    "npm": "6.x"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "mongodb": "^3.6.9",
+    "mongoose": "^5.12.13",
+    "react-dom": "^16.13.1",
+    "react-scripts": "3.4.3"
+  },
+  "keywords": [
+    "node.js",
+    "express",
+    "rest",
+    "api",
+    "mongodb",
+    "react-dom",
+    "react-scripts"
+  ],
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "seed": "node seed.js",
+    "start": "node server.js",
+    "react-start": "react-scripts start",
+    "build": "react-scripts build",
+    "react-test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  },
+  "author": "Harrison Reed",
+  "license": "ISC"
+}

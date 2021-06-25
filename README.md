@@ -1,2 +1,2 @@
-# FinalFinalProject
-Newest edition 3.0
+# FinalProject
+V1 Oregon Fashion Buyers Club
