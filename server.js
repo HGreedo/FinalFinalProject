@@ -10,12 +10,12 @@ app.use(express.json());
 app.use(express.static("client"));
 
 // Add routes, both API and view
-app.use(require('./routes/view.js'));
+app.use(require('./routes/view'));
 app.use(require('./routes/brandinfo'));
 app.use(require('./routes/boutiqueinfo'));
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost/admin", {
+mongoose.connect("mongodb://localhost:27017/admin", {
   useNewUrlParser: true,
   useFindAndModify: false,
   useUnifiedTopology: true,
