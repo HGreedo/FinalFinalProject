@@ -1,8 +1,9 @@
 const router = require("express").Router();
-const BoutiqueInfo = require('../models/boutiqueindex');
+const Boutique = require("../models/boutiqueindex");
 
 router.post('/api/boutiqueindex', (req, res) => {
-    BoutiqueInfo.create({}).then((admin) => {
+    Boutique.create({})
+    .then((admin) => {
         res.json(admin);
     })
     .catch((err) => {
@@ -12,7 +13,7 @@ router.post('/api/boutiqueindex', (req, res) => {
 });
 
 router.put('/api/boutiqueindex/:id', ({ body, params }, res) => {
-    BoutiqueInfo.findByIdAndUpdate(
+    Boutique.findByIdAndUpdate(
         params.id,
         {$push: { brands: body } },
         {new: true, runValidators: true }
@@ -24,24 +25,18 @@ router.put('/api/boutiqueindex/:id', ({ body, params }, res) => {
     });
 });
 
+//this one works
 router.get('/api/boutiques', (req, res) => {
-    BoutiqueInfo.aggregate([
-        {
-            $addfields: {
-                name: {},
-                location: {},
-                email: {},
-                type: {}
-            }
-        }
-    ]) .then((admin) => {
+    console.log("found boutique");
+    Boutique.find({}) 
+    .then((admin) => {
         res.json(admin);
     }).catch((err) => {res.json(err)
     });
 });
 
 router.get('/api/boutiques/nameSort', (req, res) => {
-    BoutiqueInfo.aggregate([
+    Boutique.aggregate([
         {
             $addfields: 'name',
         },
@@ -52,7 +47,7 @@ router.get('/api/boutiques/nameSort', (req, res) => {
 });
 
 router.delete('api/boutiques', ({body}, res) => {
-    BoutiqueInfo.findByIdAndDelete(body.id).then(() => {
+    Boutique.findByIdAndDelete(body.id).then(() => {
         res.json(true);
     })
     .catch((err) => {
