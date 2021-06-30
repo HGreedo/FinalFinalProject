@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import userData from "./data.json";
 
 function App() {
   return (
