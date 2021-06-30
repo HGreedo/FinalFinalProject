@@ -27,7 +27,7 @@
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "seed": "node seed.js",
+    "seed": "node seeders/seeds.js",
     "start": "node server.js",
     "react-start": "react-scripts start",
     "build": "react-scripts build",
