@@ -46,7 +46,7 @@ router.get('/api/boutiques/nameSort', (req, res) => {
     });
 });
 
-router.delete('api/boutiques', ({body}, res) => {
+router.delete('api/boutiques/delete', ({body}, res) => {
     Boutique.findByIdAndDelete(body.id).then(() => {
         res.json(true);
     })
@@ -55,5 +55,8 @@ router.delete('api/boutiques', ({body}, res) => {
     });
 });
 
+//This is where you should create a function for logging-in "POST"
+
+//Thuis is where you shouuld create a function for logging-out "POST"
 module.exports = router;
 

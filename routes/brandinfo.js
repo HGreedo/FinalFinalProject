@@ -11,8 +11,6 @@ router.post('/api/brandindex', (req, res) => {
     .catch(err => res.status(400).json("Error: " + err))
 });
 
-
-
 //works
 router.put('/api/brandindex/:id', ({ body, params }, res) => {
     Brand.findByIdAndUpdate(
@@ -38,7 +36,7 @@ router.get('/api/brands', (req, res) => {
 });
 
 
-//not sure the purpose of this
+//get brands by name
 router.get('/api/brands/nameSort', (req, res) => {
     Brand.aggregate([
         {
@@ -59,5 +57,9 @@ router.delete('api/brands/delete', (req, res) => {
         res.json(err);
     });
 });
+
+//This is where you should create a function for logging-in "POST"
+
+//Thuis is where you shouuld create a function for logging-out "POST"
 
 module.exports = router;
