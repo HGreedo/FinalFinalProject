@@ -1,6 +1,6 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from 'react-router-dom';
-import UseContext from "../utils/UserContext";
+import UserContext from "../utils/UserContext";
 //import API from '../utils/API';
 
 // const ifLoggedin = function (e) {
@@ -18,7 +18,7 @@ const Nav = () => {
     <Link className="navbarData" to="/api/brands/login">Login</Link>
     <Link className="navbarData" to="/api/brands/sign-up">Sign Up</Link>
     <Link className="navbarData" to="/api/brands/logout">Logout</Link>
-    <h6 className="navbarData">Hey! {UseContext.name} You are now logged in!</h6>
+    <h6 className="navbarData">Hey! {UserContext.name} You are now logged in!</h6>
 
       </nav>
     );
