@@ -9,5 +9,6 @@ router.get('/boutiques', (req, res) => {
     res.sendFile(path.join(__dirname,"../client/public/Boutique.html"))
 });
 
+//need to rework to create component and use the router to show views 
 
 module.exports = router;

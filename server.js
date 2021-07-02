@@ -13,6 +13,7 @@ app.use(express.json());
 // Serve up static assets (usually on heroku)
 app.use(express.static("client"));
 
+
 // Connect to the Mongo DB
 mongoose.connect("mongodb://localhost:27017/admin", {
   useNewUrlParser: true,
@@ -21,7 +22,7 @@ mongoose.connect("mongodb://localhost:27017/admin", {
 });
 
 
-app.use(routes, routes1, routes2);
+app.use(routes2, routes1, routes);
 // Start the API server
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);

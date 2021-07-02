@@ -9,7 +9,7 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/HGreedo/FinalFinalProject.git"
-},
+  },
   "dependencies": {
     "body-parser": "^1.19.0",
     "dotenv": "^10.0.0",
@@ -17,7 +17,8 @@
     "mongodb": "^3.6.9",
     "mongoose": "^5.12.13",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.3"
+    "react-scripts": "3.4.3",
+    "if-env": "^1.0.4"
   },
   "keywords": [
     "node.js",
@@ -28,15 +29,19 @@
     "react-dom",
     "react-scripts"
   ],
-  "devDependencies": {},
+  "devDependencies": {
+    "concurrently": "^4.1.0",
+    "nodemon": "^1.18.7"
+  },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "seed": "node seeders/seeds.js",
-    "start": "node server.js",
-    "react-start": "react-scripts start",
-    "build": "react-scripts build",
-    "react-test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "start": "if-env NODE_ENV=production && npm run start:prod || npm run start:dev",
+    "start:prod": "node server.js",
+    "start:dev": "concurrently \"nodemon --ignore 'client/*'\" \"npm run client\"",
+    "client": "cd client && npm run start",
+    "seed": "node scripts/seedDB.js",
+    "install": "cd client && npm install",
+    "build": "cd client && npm run build",
+    "heroku-postbuild": "npm run build"
   },
   "author": "Harrison Reed",
   "license": "ISC"
