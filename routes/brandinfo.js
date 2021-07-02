@@ -61,17 +61,13 @@ router.delete('api/brands/delete', (req, res) => {
 //This is where you should create a function for logging-in "POST"
 router.post('/api/brands/sign-up', (req, res) => {
     console.log(req.body);
-    Brand.create(req.body)
-
+    Brand.create(req.body).catch(admin => res.json(admin))
+    .catch(err => res.status(422).json(err));
+    //router.post(Brand.create);
 //fix this 
-    ////create: function(req, res) {
-//     db.Book
-//     .create(req.body)
-//     .then(dbModel => res.json(dbModel))
-//     .catch(err => res.status(422).json(err));
-// },
 
 });
+
 //This is where you shouuld create a function for logging-out "POST"
 
 module.exports = router;
