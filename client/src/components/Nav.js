@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from 'react-router-dom';
 import UserContext from "../utils/UserContext";
-//import API from '../utils/API';
+
 
 // const ifLoggedin = function (e) {
 // if { loggedin === 'true'} return logout button
