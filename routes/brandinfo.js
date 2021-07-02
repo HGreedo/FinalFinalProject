@@ -68,6 +68,15 @@ router.post('/api/brands/sign-up', (req, res) => {
 
 });
 
+//buggy 
+router.post('/api/brands/login', (req, res) => {
+    Brand.create(); {
+        const {name, id, address, website, email, password} = req.body;
+        const newUser = {name, id, address, website, email, password};
+        Brand.newUser.create(newUser).then(() => res.json({ status: "success" }))
+        .catch((err) => res.status(503).json(err));
+    };
+});
 //This is where you shouuld create a function for logging-out "POST"
 
 module.exports = router;

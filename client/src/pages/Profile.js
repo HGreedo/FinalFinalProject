@@ -3,7 +3,7 @@ import userContext from "../utils/UserContext";
 
 function UserInfo() {
 
-    const [{name, website, description, email}] = useContext(userContext);
+    const {name, website, description, email} = useContext(userContext);
 
 
     return (

@@ -15,7 +15,7 @@ function formSubmit(submit) {
         submit.preventDefault();
         API.brandLogin({
             name: formPromp.name,
-            passowrd: formPromp.passowrd
+            passowrd: formPromp.password
         })
         .then(res => {
             if (res.data.loggedin === true) {
@@ -28,7 +28,7 @@ function formSubmit(submit) {
             <form>
             <input onChange={form} type="text" name="name" placeholder="name" />
             <input onChange={form} type="password" name="password" placeholder="password"/>
-            <button onClick={formSubmit}>Take Me There!</button>
+            <button type="submit" onClick={formSubmit}>Take Me There!</button>
             </form>
         </div>
     )
