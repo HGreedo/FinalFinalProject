@@ -1,5 +1,7 @@
 import React, { useContext } from "react";
 import userContext from "../utils/UserContext";
+import API from "../utils/API";
+
 
 function UserInfo() {
 

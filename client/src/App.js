@@ -7,7 +7,7 @@ import Nav from './components/Nav';
 import Footer from "./components/Footer";
 import Profile from "./pages/Profile";
 import Dataindex from "./pages/DataIndex";
-
+import IndexDetail from './pages/IndexDetail';
 
 
 
@@ -18,6 +18,9 @@ function App() {
       <Switch>
           <Route exact path={["/api/brands/"]}>
             <Dataindex />
+          </Route>
+          <Route exact path={["/api/brands/nameSort"]}>
+            < IndexDetail />
           </Route>
           <Route exact path="/api/brandindex/:id/">
             <Profile />

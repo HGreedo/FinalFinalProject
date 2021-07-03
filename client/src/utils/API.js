@@ -9,6 +9,9 @@ const BRANDAPI = {
     getBrandByName: function(name) {
         return axios.get('/api/brands/nameSort/' + name);
     },
+    getBrandById: function(id) {
+        return axios.get('/api/brands/:id/'+ id)
+    },
     //Deletes brand by name
     deleteBrand: function(id) {
         return axios.delete('api/brands/:id' + id);

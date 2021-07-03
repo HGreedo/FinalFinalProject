@@ -81,8 +81,8 @@ return (
             {brands.length ? (
                 <List>
                     {brands.map(brand => (
-                        <ListItems key={brands.name}>
-                        <Link to={"/api/brands/nameSort/" +brands.name}>
+                        <ListItems key={brand.id}>
+                        <Link to={"/api/brands/:id" +brand.id}>
                                 <strong>
                                     {brand.name} by {brand.website}
                                 </strong>
