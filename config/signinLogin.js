@@ -6,7 +6,9 @@ module.exports = {
         const { name, address, website, description, email } = req.body;
     const newBrand = { name, address, website, description, email };
     newBrand.password = bcrypt.hashSync(req.body.password, 10);
-    db.Brand.create(newBrand).then(() => res.json({ status: "success" }))
+
+    db.Brand.create(newBrand)
+    .then((user) => res.json({ status: "success" }))
     .catch((err) => res.status(503).json(err));
     },
 

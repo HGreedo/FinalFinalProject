@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const  Brand  = require("../models/brandindex");
 const signInLogIn = require("../config/signinLogin"); 
-const indexGetAll = require("../config/indexGetAll")
+const indexGetAll = require("../config/indexGetAll");
 //works
 router.post('/api/brandindex', (req, res) => {
     const newBrand = new Brand({})
@@ -36,22 +36,16 @@ router.get('/api/brands', (req, res) => {
     });
 });
 
-
-
-//get brands by name
-// router.get('/api/brands/nameSort', (req, res) => {
-//     Brand.aggregate([
-//         {
-//             $addfields: 'name',
-//         },
-//     ]).sort({_name: -1}).then((admin) => {
-//         console.log(admin);
-//     }).catch((err) => { res.json(err);
-//     });
-// });
-
-
-
+router.get('/api/brands/nameSort', (req, res) => {
+    Brand.aggregate([
+        {
+            $addfields: 'name',
+        },
+    ]).sort({_name: -1}).then((admin) => {
+        console.log(admin);
+    }).catch((err) => { res.json(err);
+    });
+});
 
 //
 router.delete('api/brands/delete', (req, res) => {
@@ -67,7 +61,16 @@ router.delete('api/brands/delete', (req, res) => {
 
 
 //This is where you should create a function for logging-in "POST" //works
-router.route('/api/brands/sign-up').post(signInLogIn.create);
+// router.route('/api/brands/sign-up').post(signInLogIn.create(newBrand));
+
+
+//none of these work 
+
+router.post('/api/brands/sign-up', (req, res) => {
+    signInLogIn.create(req, newBrand).then(() => {
+        res.json(true)
+    })
+});
 
 router.route('/api/brands/login').post(signInLogIn.login)
 //This is where you shouuld create a function for logging-out "POST"
