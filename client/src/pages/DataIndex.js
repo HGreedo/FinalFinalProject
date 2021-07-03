@@ -2,7 +2,8 @@
 import React, { useState, useEffect} from "react";
 import API from "../utils/API";
 import { Link } from "react-router-dom";
-
+import { Col, Row, Container } from "../components/Grid";
+import Jumbotron from "../components/jumbotron/Jumbotron";
 
 function Brands() {
     const [brands, setBrands] = useState([])
@@ -36,40 +37,67 @@ function handleSearchSubmit(submit) {
     }
 };
 
+function FormBtn(props) {
+  return (
+    <button {...props} style={{ float: "right", marginBottom: 10 }} className="btn btn-success">
+      {props.children}
+    </button>
+  );
+  };
+  function DeleteBtn(props) {
+    return (
+      <span className="delete-btn" {...props} role="button" tabIndex="0">
+        ✗
+      </span>
+    );
+  }
+  
+  function List({ children }) {
+    return (
+        <div className="list-container">
+            <ul className="list-group">{children}</ul>
+        </div>
+    );
+};
+ function ListItems({children}) {
+    return <li className="list-group-items">{children}</li>
+};
 
-
-
-// rework this after creating components 
 return (
-    <div>
-        <form>
+    <Container fluid>
+        <Row>
+            <Col size="md-6">
+                <Jumbotron>
+                    <h1>Check Out These Brands!</h1>
+                </Jumbotron>
+                <form>
             <input onChange={handleSearchChange} name="name" placeholder="Search By Name" />
 
-            <button disabled={!(formatObject.name)} onClick={handleSearchSubmit}>Click Here to Search </button>
+            <FormBtn disabled={!(formatObject.name)} onClick={handleSearchSubmit}>Click Here to Search </FormBtn>
         </form>
-
-        <div>
-            {brands.length? (
-                <div>
+            </Col>
+            <Col size="md-6 sm-12">
+            <Jumbotron><h1>Brand List</h1></Jumbotron>
+            {brands.length ? (
+                <List>
                     {brands.map(brand => (
-                        <Brands key={brand.name}>
-                                <Link to={"/api/brands/" + brand.name}>
+                        <ListItems key={brands.name}>
+                        <Link to={"/api/brands/nameSort/" +brands.name}>
                                 <strong>
-                                    {brand.name}
+                                    {brand.name} by {brand.website}
                                 </strong>
-
-                                </Link>
-                                <button onClick={() => deleteBrand(brand.id)} />
-                        </Brands>
+                        </Link>
+                        <DeleteBtn onClick={() => deleteBrand(brand.id)} />
+                        </ListItems>
                     ))}
-                </div>
-            ) : (
-                <h3>Your Search Yields Zero Results</h3>
+                </List>
+            ) : ( 
+                <h3>No Brands Matched Your Search</h3>
             )}
-        </div>
-        </div>
-);
+            </Col>
+        </Row>
+    </Container>
+    );
 }
 export default Brands;
 
-//need to solve problem of endless loop of search queries
