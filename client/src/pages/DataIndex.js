@@ -36,6 +36,10 @@ function handleSearchSubmit(submit) {
     }
 };
 
+
+
+
+// rework this after creating components 
 return (
     <div>
         <form>

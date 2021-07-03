@@ -1,6 +1,6 @@
 const router = require("express").Router();
 const  Brand  = require("../models/brandindex");
-
+const signInLogIn = require("../config/signinLogin"); 
 //works
 router.post('/api/brandindex', (req, res) => {
     const newBrand = new Brand({})
@@ -58,25 +58,13 @@ router.delete('api/brands/delete', (req, res) => {
     });
 });
 
-//This is where you should create a function for logging-in "POST"
-router.post('/api/brands/sign-up', (req, res) => {
-    console.log(req.body);
-    Brand.create(req.body).catch(admin => res.json(admin))
-    .catch(err => res.status(422).json(err));
-    //router.post(Brand.create);
-//fix this 
 
-});
 
-//buggy 
-router.post('/api/brands/login', (req, res) => {
-    Brand.create(); {
-        const {name, id, address, website, email, password} = req.body;
-        const newUser = {name, id, address, website, email, password};
-        Brand.newUser.create(newUser).then(() => res.json({ status: "success" }))
-        .catch((err) => res.status(503).json(err));
-    };
-});
+
+//This is where you should create a function for logging-in "POST" //works
+router.route('/api/brands/sign-up').post(signInLogIn.create);
+
+router.route('/api/brands/login').post(signInLogIn.login)
 //This is where you shouuld create a function for logging-out "POST"
 
 module.exports = router;

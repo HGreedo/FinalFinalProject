@@ -29,8 +29,8 @@ return(
             <input onChange={newSubmission} type="text" placeholder = "Address" name = "address" />
             <input onChange={newSubmission} type="text" placeholder = "website URL" name = "website" />
             <input onChange={newSubmission} type="text" placeholder = "Brief Description" name = "description" />
-            <input onChange={newSubmission} type="text" placeholder = "Email" name = "email" />
-            <input onChange={newSubmission} type="text" placeholder = "Password" name = "password" />
+            <input onChange={newSubmission} type="email" placeholder = "Email" name = "email" />
+            <input onChange={newSubmission} type="password" placeholder = "Password" name = "password" />
             <button type="submit" onClick={FormSubmit}>submit</button>
         </form>
     </div>
