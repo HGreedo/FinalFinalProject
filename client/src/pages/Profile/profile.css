@@ -1,0 +1,23 @@
+
+.profile-card {
+    background-color: darkcyan;
+    text-align: center;
+    font-weight: 800;
+    color: tan;
+};
+.profile-name{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.profile-website{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+.profile-description {
+    background-color: white;
+    border-style: solid black;
+    text-align: left;
+}
+.profile-email{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}

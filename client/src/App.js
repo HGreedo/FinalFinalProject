@@ -5,7 +5,7 @@ import SignUp from "./pages/SignUp";
 import SignIn from './pages/SignIn';
 import Nav from './components/Nav';
 import Footer from "./components/Footer";
-import Profile from "./pages/Profile";
+import Profile from "./pages/Profile/Profile";
 import Dataindex from "./pages/DataIndex";
 import IndexDetail from './pages/IndexDetail';
 
