@@ -3,14 +3,14 @@ const  Brand  = require("../models/brandindex");
 const signInLogIn = require("../config/signinLogin"); 
 const indexGetAll = require("../config/indexGetAll");
 //works
-router.post('/api/brandindex', (req, res) => {
-    const newBrand = new Brand({})
+// router.post('/api/brandindex', (req, res) => {
+//     const newBrand = new Brand({})
 
-    newBrand
-    .save()
-    .then(() => res.json("New Brand Created!"))
-    .catch(err => res.status(400).json("Error: " + err))
-});
+//     newBrand
+//     .save()
+//     .then(() => res.json("New Brand Created!"))
+//     .catch(err => res.status(400).json("Error: " + err))
+// });
 
 //works
 router.put('/api/brandindex/:id', ({ body, params }, res) => {
@@ -56,6 +56,10 @@ router.delete('api/brands/delete', (req, res) => {
         res.json(err);
     });
 });
+router.post('/api/brands/sign-up', create(newBrand)= function (req, res) {
+    Brand.create(req.body).then(admin => res.json(admin))
+
+})
 
 
 
@@ -66,11 +70,11 @@ router.delete('api/brands/delete', (req, res) => {
 
 //none of these work 
 
-router.post('/api/brands/sign-up', (req, res) => {
-    signInLogIn.create(req, newBrand).then(() => {
-        res.json(true)
-    })
-});
+// router.post('/api/brands/sign-up', (req, res) => {
+//     signInLogIn.create(req, newBrand).then(() => {
+//         res.json(true)
+//     })
+// });
 
 router.route('/api/brands/login').post(signInLogIn.login)
 //This is where you shouuld create a function for logging-out "POST"

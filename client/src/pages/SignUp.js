@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import API from '../utils/API';
-import FormBtn from "./DataIndex";
+
 
 function SignUp() { 
     const [ brands, setBrands] = useState({})
@@ -13,7 +13,7 @@ function SignUp() {
       }, [brands])
 
     function loadBrands() {
-        API.getBooks()
+        API.getBrands()
           .then(res => 
             setBrands(res.data)
           )
@@ -32,7 +32,7 @@ function handleInputChange(submit) {
 
 function handleFormSubmit(submit) {
     submit.preventDefault();
-     if (formObject.name && formObject.password) {
+    if (formObject.name && formObject.password) {
     API.saveBrand({
     name: formObject.name,
     address: formObject.address,
@@ -43,7 +43,8 @@ function handleFormSubmit(submit) {
     })
     .then(res => loadBrands())
         .catch(err => console.log(err));
-    }
+        console.log(handleFormSubmit);
+     }
 
 };
 return(
@@ -55,12 +56,11 @@ return(
             <input onChange={handleInputChange} type="text" placeholder = "Brief Description" name = "description" />
             <input onChange={handleInputChange} type="email" placeholder = "Email" name = "email" />
             <input onChange={handleInputChange} type="password" placeholder = "Password" name = "password" />
-            <FormBtn
-                disabled={!(formObject.brands && formObject.brands)}
+            <button
                 onClick={handleFormSubmit}
               >
                 Submit Brand
-              </FormBtn>
+              </button>
         </form>
     </div>
     );

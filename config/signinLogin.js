@@ -18,7 +18,7 @@ module.exports = {
         })
     },
     login: function (req, res) {
-        db.Brand.findOne({ name: req.body.name })
+        db.Brand.findOne({ brand: req.body.name })
         .then((brand) => {
             console.log(brand)
             const hashed = brand.password;
