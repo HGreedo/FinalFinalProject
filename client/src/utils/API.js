@@ -2,7 +2,7 @@ import axios from "axios";
 
 const BRANDAPI = {
     //Gets all brands does not work when trying to get name
-    getBrands : function() {
+    getBrands: function() {
         return axios.get("/api/brands/");
     },
       //Gets Brands by NameSort

@@ -1,39 +1,70 @@
 //create a sign-up form that extends all the info required tp sign-up
 
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react';
 import API from '../utils/API';
+import FormBtn from "./DataIndex";
 
-function SignUp() { const [formPromp, formSubmission] = useState({})
+function SignUp() { 
+    const [ brands, setBrands] = useState({})
+    const [formObject, setFormObject] = useState({})
 
-function newSubmission(submit) {
+    useEffect(() => {
+        loadBrands()
+      }, [brands])
+
+    function loadBrands() {
+        API.getBooks()
+          .then(res => 
+            setBrands(res.data)
+          )
+          .catch(err => console.log(err));
+      };
+    
+
+function handleInputChange(submit) {
     const {name, value } = submit.target;
-    formSubmission({...formPromp, [name]: value})
+    setFormObject({...formObject, [name]: value})
 };
 
-function FormSubmit(submit) {
+
+
+  //import FormBtn 
+
+function handleFormSubmit(submit) {
     submit.preventDefault();
-    
+     if (formObject.name && formObject.password) {
     API.saveBrand({
-    name: formPromp.name,
-    address: formPromp.address,
-    website: formPromp.website,
-    description: formPromp.description,
-    email: formPromp.email,
-    password: formPromp.password
+    name: formObject.name,
+    address: formObject.address,
+    website: formObject.website,
+    description: formObject.description,
+    email: formObject.email,
+    password: formObject.password
     })
+    .then(res => loadBrands())
+        .catch(err => console.log(err));
+    }
+
 };
 return(
     <div>
         <form>
-            <input onChange={newSubmission} type="text" placeholder = "Name" name = "name" />
-            <input onChange={newSubmission} type="text" placeholder = "Address" name = "address" />
-            <input onChange={newSubmission} type="text" placeholder = "website URL" name = "website" />
-            <input onChange={newSubmission} type="text" placeholder = "Brief Description" name = "description" />
-            <input onChange={newSubmission} type="email" placeholder = "Email" name = "email" />
-            <input onChange={newSubmission} type="password" placeholder = "Password" name = "password" />
-            <button type="submit" onClick={FormSubmit}>submit</button>
+            <input onChange={handleInputChange} type="text" placeholder = "Name" name = "name" />
+            <input onChange={handleInputChange} type="text" placeholder = "Address" name = "address" />
+            <input onChange={handleInputChange} type="text" placeholder = "website URL" name = "website" />
+            <input onChange={handleInputChange} type="text" placeholder = "Brief Description" name = "description" />
+            <input onChange={handleInputChange} type="email" placeholder = "Email" name = "email" />
+            <input onChange={handleInputChange} type="password" placeholder = "Password" name = "password" />
+            <FormBtn
+                disabled={!(formObject.brands && formObject.brands)}
+                onClick={handleFormSubmit}
+              >
+                Submit Brand
+              </FormBtn>
         </form>
     </div>
-)
+    );
+
 }
+
 export default SignUp;
