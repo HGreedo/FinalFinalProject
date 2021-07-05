@@ -64,7 +64,7 @@ router.post('/api/brands/sign-up', create(newBrand)= function (req, res) {
     this.Brand.create(req.body).then(admin => res.json(admin))
     console.log(admin)
 
-})
+});
 
 
 
