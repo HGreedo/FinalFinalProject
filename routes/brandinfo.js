@@ -2,7 +2,11 @@ const router = require("express").Router();
 const  Brand  = require("../models/brandindex");
 const signInLogIn = require("../config/signinLogin"); 
 const indexGetAll = require("../config/indexGetAll");
-const { create, newBrand } = require("../models/brandindex");
+
+const brandLogin = signInLogIn.brandLogin;
+
+
+// const  newBrand = require("../models/brandindex");
 //works
 // router.post('/api/brandindex', (req, res) => {
 //  const newBrand = new Brand({})
@@ -60,28 +64,15 @@ router.delete('api/brands/delete', (req, res) => {
 
 
 //working on this 
-router.post('/api/brands/sign-up', create(newBrand)= function (req, res) {
-    this.Brand.create(req.body).then(admin => res.json(admin))
-    console.log(admin)
-
+router.post('/api/brands/sign-up', (req, res) => {
+    Brand.create(req.body).then(admin => res.json(admin));
+    // console.log(admin)
 });
 
-
-
-
-//This is where you should create a function for logging-in "POST" //works
-// router.route('/api/brands/sign-up').post(signInLogIn.create(newBrand));
-
-
-//none of these work 
-
-// router.post('/api/brands/sign-up', (req, res) => {
-//     signInLogIn.create(req, newBrand).then(() => {
-//         res.json(true)
-//     })
-// });
-
-router.route('/api/brands/login').post(signInLogIn.login)
+router.post('/api/brands/login', (req, res) => {
+    Brand.findOne(req.brandLogin).then(admin => res.json(admin));
+    console.log(findOne.res);
+});
 //This is where you shouuld create a function for logging-out "POST"
 
 //this route returns brand by id in the index search

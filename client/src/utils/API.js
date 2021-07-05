@@ -18,7 +18,7 @@ const BRANDAPI = {
     },
     //updates brand by id 
     updateBrand: function(id) {
-        return axios.put('/api/brandindex/:id/' + id)
+        return axios.put('/api/brandindex/:id' + id)
     },
 
     //posting an object
@@ -26,6 +26,9 @@ const BRANDAPI = {
     saveBrand: function(brandData) {
         return axios.post("/api/brands/sign-up", brandData);
     },
+    getBrand:  function(id) {
+        return axios.get("/api/brands/" + id)
+      },
        //log in
     brandLogin: function(brandData) {
          console.log(brandData);

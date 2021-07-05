@@ -1,21 +1,20 @@
 //create a sign-up form that extends all the info required tp sign-up
 
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import API from '../utils/API';
 
 
 function SignUp() { 
-    const [ brands, setBrands] = useState({})
     const [formObject, setFormObject] = useState({})
 
-    useEffect(() => {
-        loadBrands()
-      }, [brands])
+    // useEffect(() => {
+    //     loadBrands()
+    //   }, [brands])
 
     function loadBrands() {
         API.getBrands()
           .then(res => 
-            setBrands(res.data)
+            setFormObject(res.data)
           )
           .catch(err => console.log(err));
       };
@@ -26,9 +25,6 @@ function handleInputChange(submit) {
     setFormObject({...formObject, [name]: value})
 };
 
-
-
-  //import FormBtn 
 
 function handleFormSubmit(submit) {
     submit.preventDefault();

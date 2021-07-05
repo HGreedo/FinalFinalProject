@@ -4,6 +4,7 @@ const userContext = React.createContext({
     loggedin: false,
     name: "",
     id: "",
+    password: "",
     onUpdate: () => undefined
 
 });
