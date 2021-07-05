@@ -2,9 +2,10 @@ const router = require("express").Router();
 const  Brand  = require("../models/brandindex");
 const signInLogIn = require("../config/signinLogin"); 
 const indexGetAll = require("../config/indexGetAll");
+const { create, newBrand } = require("../models/brandindex");
 //works
 // router.post('/api/brandindex', (req, res) => {
-//     const newBrand = new Brand({})
+//  const newBrand = new Brand({})
 
 //     newBrand
 //     .save()
@@ -56,8 +57,12 @@ router.delete('api/brands/delete', (req, res) => {
         res.json(err);
     });
 });
+
+
+//working on this 
 router.post('/api/brands/sign-up', create(newBrand)= function (req, res) {
-    Brand.create(req.body).then(admin => res.json(admin))
+    this.Brand.create(req.body).then(admin => res.json(admin))
+    console.log(admin)
 
 })
 

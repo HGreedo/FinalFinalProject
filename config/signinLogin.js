@@ -1,9 +1,10 @@
 const db = require('../models/brandindex');
 const bcrypt = require('bcrypt');
 
+
 module.exports = {
     create: function(req, res) {
-        const { name, address, website, description, email } = req.body;
+    const { name, address, website, description, email } = req.body;
     const newBrand = { name, address, website, description, email };
     newBrand.password = bcrypt.hashSync(req.body.password, 10);
 
