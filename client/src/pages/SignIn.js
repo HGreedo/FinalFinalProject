@@ -2,7 +2,7 @@
 import React, { useContext, useState } from 'react';
 import API from '../utils/API';
 import UserContext from "../utils/UserContext";
-
+import "./SignIn/signin.css"
 
 function SignIn() { const [formPromp, formSubmission] = useState({})
 
@@ -26,9 +26,11 @@ function formSubmit(submit) {
     };
     return(
         <div className="sign-in">
-            <form>
+            <form className="form">
+                <h4>Please Enter Your Login Details to Explore OFBC</h4>
             <input onChange={form} type="text" name="name" placeholder="name" />
             <input onChange={form} type="password" name="password" placeholder="password"/>
+            <br/>
             <button type="submit" onClick={formSubmit}>Take Me There!</button>
             </form>
         </div>

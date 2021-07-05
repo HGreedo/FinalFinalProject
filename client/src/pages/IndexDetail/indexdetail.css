@@ -42,3 +42,8 @@
     align-content: flex-end;
     margin-top: 100px;
 }
+
+* {
+    background-color: coral;
+}
+

@@ -1,9 +1,9 @@
 //create a table to display information 
 import React, { useState, useEffect} from "react";
-import API from "../utils/API";
+import API from "../../utils/API";
 import { Link } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
-import Jumbotron from "../components/jumbotron/Jumbotron";
+import { Col, Row, Container } from "../../components/Grid";
+import ("./dataindex.css")
 
 function Brands() {
     const [brands, setBrands] = useState([])
@@ -39,7 +39,7 @@ function handleSearchSubmit(submit) {
 
 function FormBtn(props) {
   return (
-    <button {...props} style={{ float: "right", marginBottom: 10 }} className="btn btn-success">
+    <button {...props} className="search-button">
       {props.children}
     </button>
   );
@@ -64,25 +64,24 @@ function FormBtn(props) {
 };
 
 return (
-    <Container fluid>
+    <Container  className="index"  fluid>
         <Row>
             <Col size="md-6">
-                <Jumbotron>
-                    <h1>Check Out These Brands!</h1>
-                </Jumbotron>
+            <h1>Check Out These Brands!</h1>
+               
                 <form>
             <input onChange={handleSearchChange} name="name" placeholder="Search By Name" />
 
             <FormBtn disabled={!(formatObject.name)} onClick={handleSearchSubmit}>Click Here to Search </FormBtn>
         </form>
             </Col>
-            <Col size="md-6 sm-12">
-            <Jumbotron><h1>Brand List</h1></Jumbotron>
+            <Col size="md-6">
+            <h1>Brand List</h1>
             {brands.length ? (
-                <List>
+                <List className="brand-list">
                     {brands.map(brand => (
-                        <ListItems key={brand.id}>
-                        <Link to={"/api/brands/:id" +brand.id}>
+                        <ListItems className="brand-items" key={brand.id}>
+                        <Link to={"/api/brands/:id" + brand.id}>
                                 <strong>
                                     {brand.name} by {brand.website}
                                 </strong>

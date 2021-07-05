@@ -1,8 +1,8 @@
 //create a sign-up form that extends all the info required tp sign-up
 
 import React, { useState } from 'react';
-import API from '../utils/API';
-
+import API from '../../utils/API';
+import './signup.css';
 
 function SignUp() { 
     const [formObject, setFormObject] = useState({})
@@ -44,15 +44,18 @@ function handleFormSubmit(submit) {
 
 };
 return(
-    <div>
-        <form>
+    <div className="sign-up-card">
+        <h1>Please Fill Out Your Details to Enjoy the Full Experience of OFBC</h1>
+        <br/>
+        <form className="signup-form">
             <input onChange={handleInputChange} type="text" placeholder = "Name" name = "name" />
             <input onChange={handleInputChange} type="text" placeholder = "Address" name = "address" />
             <input onChange={handleInputChange} type="text" placeholder = "website URL" name = "website" />
             <input onChange={handleInputChange} type="text" placeholder = "Brief Description" name = "description" />
             <input onChange={handleInputChange} type="email" placeholder = "Email" name = "email" />
             <input onChange={handleInputChange} type="password" placeholder = "Password" name = "password" />
-            <button
+            <br/>
+            <button className="signup-button"
                 onClick={handleFormSubmit}
               >
                 Submit Brand

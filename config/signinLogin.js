@@ -1,4 +1,4 @@
-const db = require('../models/brandindex');
+const Brand = require('../models/brandindex');
 const bcrypt = require('bcrypt');
 
 
@@ -7,20 +7,20 @@ module.exports = {
     const { name, address, website, description, email } = req.body;
     const newBrand = { name, address, website, description, email };
     newBrand.password = bcrypt.hashSync(req.body.password, 10);
-     db.Brand.create(newBrand)
+     Brand.create(newBrand)
     .then((brand) => res.json({ status: "success" }))
     .catch((err) => res.status(503).json(err));
     },
 
     find: function(req, res) {
-        db.Brand.findAll({ name: req.body.name }).then((brand) => {
+        Brand.findAll({ name: req.body.name }).then((brand) => {
             return brand;
         })
     },
 
     //need to reqork findOne, "brand" is undefined ^^^ 
     brandLogin: function (req, res) {
-        db.Brand.findOne({ name: req.body.name })
+        Brand.findOne({ name: req.body.name })
         .then((brand) => {
             console.log(brand)
             const hashed = brand.password;

@@ -1,28 +1,31 @@
 import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { Col, Row, Container } from "../components/Grid";
-import Jumbotron from "../components/jumbotron/Jumbotron";
-import API from "../utils/API";
+import { Col, Row, Container } from "../../components/Grid";
+import Jumbotron from "../../components/jumbotron/Jumbotron";
+import API from "../../utils/API";
+// import DataIndex from "../DataIndex";
+import ("./indexdetail.css")
 
 function IndexDetail(props) {
     const [brand, setBrand ] = useState({})
 
-    const {name} = useParams()
+    const {id} = useParams()
     useEffect(() => {
-        API.getBrandByName(name).then(res => setBrand(res.data)).catch(err => console.log(err));
-    }, [name])
+        API.getBrandById(id).then(res => setBrand(res.data)).catch(err => console.log(err));
+    }, [id])
 
 return (
+    <div className="profile-card">
     <Container fluid>
         <Row>
             <Col size="md-12">
                 <Jumbotron>
-                    <h1>Welcome to {brand.name} by {brand.website}!</h1>
+                    <h1 className="name">Welcome to {brand.name} by {brand.website}!</h1>
                 </Jumbotron>
             </Col>
         </Row>
         <Row>
-            <Col size="md-12 md-offset-1">
+            <Col size="md-12 md-offset-1" className="profile-website">
                 <description>
                     <h3>Company Bio</h3>
                     {brand.description}
@@ -35,6 +38,7 @@ return (
             </Col>
         </Row>
     </Container>
+    </div>
 );
 }
 

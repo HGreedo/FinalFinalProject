@@ -1,0 +1,25 @@
+.delete-btn{
+
+}
+.search-button{
+cursor: crosshair;
+background-color: coral;
+color: black;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+float: "right"
+}
+.h1 {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+.index {
+   font-size: 20px;
+   padding-left: 100px;
+   margin-left: 100px;
+   width: 80%;
+}
+.brand-items {
+   display: flex;
+   flex-direction: column;
+   -ms-flex-align: center;
+   padding-inline-start: 100px;
+}

@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import userContext from "../../utils/UserContext";
 import API from "../../utils/API";
-
+import ("./profile.css")
 
 function Profile(props) {
 
@@ -18,7 +18,7 @@ function Profile(props) {
 
     return (
         <div className="profile-card">
-            <div className="profile-name">
+            <div className="name">
                 Name: {brand.name} {name}
             </div>
             <div className="profile-website">
@@ -31,7 +31,7 @@ function Profile(props) {
                 Email: 
             </div>
             <div>
-                <Link to="/api/brandindex/:id/">Click Here to update Your Profile</Link>
+                <Link className="button" to="/api/brandindex/:id/">Click Here to update Your Profile</Link>
             </div>
         </div>
     );
