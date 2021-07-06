@@ -19,13 +19,13 @@ return (
     <Container fluid>
         <Row>
             <Col size="md-12">
-                <Jumbotron>
+                
                     <h1 className="name">Welcome to {brand.name} by {brand.website}!</h1>
-                </Jumbotron>
+                
             </Col>
         </Row>
         <Row>
-            <Col size="md-12 md-offset-1" className="profile-website">
+            <Col size="md-12" className="profile-website">
                 <description>
                     <h3>Company Bio</h3>
                     {brand.description}

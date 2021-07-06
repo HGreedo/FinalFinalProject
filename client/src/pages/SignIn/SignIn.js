@@ -1,8 +1,8 @@
 //create a sign-in form that matches email and password
 import React, { useContext, useState } from 'react';
-import API from '../utils/API';
-import UserContext from "../utils/UserContext";
-import "./SignIn/signin.css"
+import API from '../../utils/API';
+import UserContext from "../../utils/UserContext";
+import "./signin.css"
 
 function SignIn() { const [formPromp, formSubmission] = useState({})
 
@@ -26,12 +26,12 @@ function formSubmit(submit) {
     };
     return(
         <div className="sign-in">
-            <form className="form">
-                <h4>Please Enter Your Login Details to Explore OFBC</h4>
+             <h4 className="header">Please Enter Your Login Details to Explore OFBC</h4>
+            <form className="signin-form">
             <input onChange={form} type="text" name="name" placeholder="name" />
-            <input onChange={form} type="password" name="password" placeholder="password"/>
-            <br/>
-            <button type="submit" onClick={formSubmit}>Take Me There!</button>
+            <input className="password" onChange={form} type="password" name="password" placeholder="password"/>
+            <br />
+            <button className="form-button" type="submit" onClick={formSubmit}>Take Me There!</button>
             </form>
         </div>
     )

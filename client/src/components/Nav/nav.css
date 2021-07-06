@@ -1,0 +1,18 @@
+.navbar {
+background-color: ivory;
+margin-bottom: 10px;
+box-shadow: 0px 10px black;
+}
+.navbarData {
+    font-weight: 700;
+    font-size: 25px;
+
+}
+.navbarData:hover {
+    color: purple;
+}
+.navbarSpan {
+    background-color: ivory;
+    border-radius: 2px;
+    border-bottom: black;
+}

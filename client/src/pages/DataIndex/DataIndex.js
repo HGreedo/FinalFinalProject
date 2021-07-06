@@ -64,25 +64,25 @@ function FormBtn(props) {
 };
 
 return (
-    <Container  className="index"  fluid>
+    <Container  className="background"  fluid>
         <Row>
             <Col size="md-6">
-            <h1>Check Out These Brands!</h1>
+            <h3 className="top-header">Check Out These Brands!</h3>
                
-                <form>
-            <input onChange={handleSearchChange} name="name" placeholder="Search By Name" />
+                <form className="search-form">
+            <input className="input" onChange={handleSearchChange} name="name" placeholder="Search By Name" />
 
             <FormBtn disabled={!(formatObject.name)} onClick={handleSearchSubmit}>Click Here to Search </FormBtn>
         </form>
             </Col>
             <Col size="md-6">
-            <h1>Brand List</h1>
+            <h2 className="header">Brand List</h2>
             {brands.length ? (
                 <List className="brand-list">
                     {brands.map(brand => (
                         <ListItems className="brand-items" key={brand.id}>
                         <Link to={"/api/brands/:id" + brand.id}>
-                                <strong>
+                                <strong className="brand-children">
                                     {brand.name} by {brand.website}
                                 </strong>
                         </Link>
