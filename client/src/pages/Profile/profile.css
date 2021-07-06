@@ -1,0 +1,44 @@
+
+.profile-card {
+    display: flex;
+    flex-direction: column;
+    background-color:coral;
+    text-align: left;
+    padding-left: 20px;
+    color:black;
+    padding-bottom: 300px;
+}
+.name {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 10px;
+    font-size: 30px;
+    font-weight: 600;
+}
+.profile-website{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 30px;
+
+}
+.profile-description {
+    background-color: white;
+    border-style: solid black;
+    text-align: left;
+    height: 200px;
+    width: 600px;
+    margin-top: 10px;
+}
+.profile-email{
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    margin-top: 10px;
+
+}
+
+.button {
+    background-color: cornsilk;
+    color: forestgreen;
+    font-weight: 400px;
+    margin-left: 600px;
+    width: 100px;
+    align-content: flex-end;
+    margin-top: 100px;
+}

@@ -1,25 +1,42 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import './App.css';
+import SignUp from "./pages/SignUp/SignUp";
+import SignIn from './pages/SignIn';
+import Nav from './components/Nav';
+import Footer from "./components/Footer";
+import Profile from "./pages/Profile/Profile";
+import Dataindex from "./pages/DataIndex/DataIndex";
+import IndexDetail from './pages/IndexDetail/IndexDetail';
+
+
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Router> 
+      <Nav />
+      <Switch>
+          <Route exact path={["/api/brands/"]}>
+            <Dataindex>
+            < IndexDetail />
+              </Dataindex>
+          </Route>
+          <Route exact path={["/api/brands/nameSort"]}>
+          </Route>
+          <Route exact path="/api/brandindex/:id/">
+            <Profile />
+          </Route>
+          <Route exact path="/api/brands/sign-up">
+            < SignUp />
+          </Route>
+          < Route exact path="/api/brands/login">
+            <SignIn />
+          </Route>
+          <Footer />
+      </Switch>
+    </Router>
   );
 }
-
+ 
 export default App;
+//this will connect to index.js

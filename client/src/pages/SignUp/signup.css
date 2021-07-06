@@ -1,0 +1,37 @@
+.sign-up-card {
+border-radius: 2px;
+border: solid slategray;
+background-color: snow;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+height: 600px;
+width: 80%;
+cursor: pointer;
+align-items: center;
+padding: 50px;
+margin-left: 150px;
+}
+.signup-form{
+    display: flex;
+    flex-direction: column;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border: steelblue solid;
+    border-radius: 1px;
+    padding-inline-start: 30px;
+    padding-bottom: 8px;
+}
+
+.signup-button {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+    background-color: coral;
+    height: 50px;
+    width: 200px;
+    margin-top: 30px;
+    font-size: larger;
+}
+
+.input {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    padding-bottom: 20px;
+}
