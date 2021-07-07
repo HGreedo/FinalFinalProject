@@ -1,4 +1,7 @@
 const brandindex = require("../models/brandindex");
+// const { findOne } = require("./signintoLogin");
+
+
 
 module.exports = {
     findById: function(req, res) {

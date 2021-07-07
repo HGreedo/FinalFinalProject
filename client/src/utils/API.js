@@ -10,7 +10,7 @@ const BRANDAPI = {
         return axios.get('/api/brands/nameSort/' + name);
     },
     getBrandById: function(id) {
-        return axios.get('/api/brands/:id/'+ id)
+        return axios.get('/api/brands/'+ id)
     },
     //Deletes brand by name
     deleteBrand: function(id) {

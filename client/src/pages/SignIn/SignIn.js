@@ -1,6 +1,7 @@
 //create a sign-in form that matches email and password
 import React, { useContext, useState } from 'react';
-import API from '../../utils/API';
+import BRANDAPI from '../../utils/API';
+// import API from '../../utils/API';
 import UserContext from "../../utils/UserContext";
 import "./signin.css"
 
@@ -14,7 +15,7 @@ function form(submit) {
     
 function formSubmit(submit) {
         submit.preventDefault();
-        API.brandLogin({
+        BRANDAPI.brandLogin({
             name: formPromp.name,
             passowrd: formPromp.password
         })
@@ -29,7 +30,7 @@ function formSubmit(submit) {
              <h4 className="header">Please Enter Your Login Details to Explore OFBC</h4>
             <form className="signin-form">
             <input onChange={form} type="text" name="name" placeholder="name" />
-            <input className="password" onChange={form} type="password" name="password" placeholder="password"/>
+            <input className="password" onChange={form} type="password" passowrd="password" placeholder="password"/>
             <br />
             <button className="form-button" type="submit" onClick={formSubmit}>Take Me There!</button>
             </form>
