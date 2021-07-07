@@ -23,7 +23,7 @@ function App() {
           </Route>
           <Route exact path={["/api/brands/nameSort"]}>
           </Route>
-          <Route exact path="/api/brandindex/:id/">
+          <Route exact path="/api/brandindex/profile">
             <Profile />
           </Route>
           <Route exact path="/api/brands/sign-up">

@@ -32,7 +32,7 @@ function Profile(props) {
             </div>
             <br/>
             <div className="update-card">
-                <Link className="button" to="/api/brandindex/:id/">Click Here to update Your Profile</Link>
+                <Link className="button" to="/api/brandindex/profile">Click Here to update Your Profile</Link>
             </div>
         </div>
     );

@@ -11,6 +11,9 @@ function SignUp() {
     //     loadBrands()
     //   }, [brands])
 
+
+
+
     function loadBrands() {
         API.getBrands()
           .then(res => 
@@ -26,6 +29,8 @@ function handleInputChange(submit) {
 };
 
 
+
+
 function handleFormSubmit(submit) {
     submit.preventDefault();
     if (formObject.name && formObject.password) {
@@ -35,8 +40,14 @@ function handleFormSubmit(submit) {
     website: formObject.website,
     description: formObject.description,
     email: formObject.email,
-    password: formObject.password
+    password: formObject.password,
+
+    //what do i need to do around this id key?
+    // id: 
+
+
     })
+    
     .then(res => loadBrands())
         .catch(err => console.log(err));
         console.log(handleFormSubmit);

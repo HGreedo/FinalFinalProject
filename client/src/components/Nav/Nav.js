@@ -13,7 +13,7 @@ const Nav = () => {
     return (
       <nav className="navbar">
     <Link className="navbarData" to="/">Home</Link>
-    <Link className="navbarData" to="/api/brandindex/:id">Profile</Link>
+    <Link className="navbarData" to="/api/brandindex/profile">Profile</Link>
     <Link className="navbarData" to="/api/brands">Full index</Link>
     <Link className="navbarData" to="/api/brands/login">Login</Link>
     <Link className="navbarData" to="/api/brands/sign-up">Sign Up</Link>

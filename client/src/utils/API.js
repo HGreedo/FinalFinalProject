@@ -14,13 +14,12 @@ const BRANDAPI = {
     },
     //Deletes brand by name
     deleteBrand: function(id) {
-        return axios.delete('api/brands/:id' + id);
+        return axios.delete('api/brands/' + id);
     },
     //updates brand by id 
     updateBrand: function(id) {
         return axios.put('/api/brandindex/:id' + id)
     },
-
     //posting an object
     //do I need to replicate these functions from my routes // and also do i need to include 'brandData' as parameter?
     saveBrand: function(brandData) {
@@ -39,6 +38,7 @@ const BRANDAPI = {
         return axios.post("/api/brands/logout", brandData);
     }
 };
+
 
 // const BOUTIQUEAPI = {
 //     getBoutiques : function(name) {

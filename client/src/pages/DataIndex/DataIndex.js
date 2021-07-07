@@ -14,9 +14,17 @@ function Brands() {
     }, [])
 
 
-function loadBrands() {
-    API.getBrands().then(res => setBrands(res.data)).catch(err => console.log(err));
+function loadBrands() { 
+    
+    API.getBrands().then(res => { 
+        console.log(res.data)
+        setBrands(res.data)
+    })
+
+    .catch(err => console.log(err));
 };
+
+
 function deleteBrand(id) {
     API.deleteBrand(id).then(res => loadBrands()).catch(err => console.log(err))
 };
@@ -24,10 +32,10 @@ function handleSearchChange(submit) {
     const { name, value } = submit.target;
     setFormObject({...formatObject, [name]: value})
 };
-
 function handleSearchSubmit(submit) {
     submit.preventDefault();
-    if(formatObject.name && formatObject.email) {
+    console.log(handleSearchSubmit);
+    if(formatObject.name) {
         API.saveBrand({
             name: formatObject.name,
             email: formatObject.email,
@@ -63,8 +71,9 @@ function FormBtn(props) {
     return <li className="list-group-items">{children}</li>
 };
 
+
 return (
-    <Container  className="background"  fluid>
+    <Container  className="background" fluid>
         <Row>
             <Col size="md-6">
             <h3 className="top-header">Check Out These Brands!</h3>
@@ -80,13 +89,13 @@ return (
             {brands.length ? (
                 <List className="brand-list">
                     {brands.map(brand => (
-                        <ListItems className="brand-items" key={brand.id}>
-                        <Link to={"/api/brands/:id" + brand.id}>
+                        <ListItems className="brand-items" key={brand._id}>
+                        <Link to={"/api/brands/" + brand._id}>
                                 <strong className="brand-children">
                                     {brand.name} by {brand.website}
                                 </strong>
                         </Link>
-                        <DeleteBtn onClick={() => deleteBrand(brand.id)} />
+                        <DeleteBtn onClick={() => deleteBrand(brand._id)} />
                         </ListItems>
                     ))}
                 </List>
@@ -98,5 +107,6 @@ return (
     </Container>
     );
 }
+
 export default Brands;
 

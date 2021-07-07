@@ -14,6 +14,9 @@ const signInLogIn = require("../config/signinLogin");
 //     .catch(err => res.status(400).json("Error: " + err))
 // });
 
+
+
+
 //works
 router.put('/api/brandindex/:id', ({ body, params }, res) => {
     Brand.findByIdAndUpdate(
@@ -78,24 +81,5 @@ router.post('/api/brands/login', (req, res) => {
 });
 
 
-
-// router.route('/api')
-//   .post(signInLogIn.create)
-//   .get(signInLogIn.findOne);
-
-// router.route('api/brands/login')
-//     .post(signInLogIn.findOne);
-
-
-
 module.exports = router;
 
-
-// router.post('/api/brands' + _id, (req, res) => {
-//     console.log("found exact brand");
-//     Brand.findOne({_id}) 
-//     .then((brand) => {
-//         res.json(brand);
-//     }).catch((err) => {res.json(err)
-//     });
-// });

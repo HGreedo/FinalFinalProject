@@ -11,7 +11,16 @@ module.exports = {
      db.Brand.create(newBrand)
     .then((brand) => res.json({ 
         name: brand.name,
-        id: brand.id,
+
+
+
+        id: brand._id,
+
+
+
+
+
+        
         isSignedIn: req.session.isSignedIn
      })
      )
@@ -29,31 +38,35 @@ module.exports = {
 
         db.Brand.findOne({ name: req.body.name })
 
-        .then((brand) => {
+        .then((Brand) => {
 
-            console.log(brand.password)
+            console.log(Brand.password)
 
-            const hashed = brand.password;
+            //
+            const hashed = db.Brand.password;
 
-            bcrypt.compare(req.body.password, hashed, function (err, brand) {
+
+
+            //
+            bcrypt.compare(req.body.password, hashed, function (err, Brand) {
                 if(err) {
                     console.log(err);
                     res.status(500).send("Server Issue");
                 }
-                if (brand) {
+                if (Brand) {
                     console.log("brand found")
                     req.session.save (() => { 
                         req.session.signedIn = true; 
                         res.json({
-                            name: `${brand.name}`,
-                            address: `${brand.address}`,
-                            website: `${brand.website}`,
-                            email: `${brand.email}`,
-                            id: `${brand._id}`,
+                            name: `${Brand.name}`,
+                            address: `${Brand.address}`,
+                            website: `${Brand.website}`,
+                            email: `${Brand.email}`,
+                            id: `${Brand._id}`,
                             signedIn: req.session.signedIn
                         });
                         })
-            } else if (!brand ) {
+            } else if (!Brand ) {
                 res.send(console.log('Brand Not Found'));
             } else {
                 res.status(555).send("Hey! Where do you think you're going?");
