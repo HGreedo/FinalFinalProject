@@ -9,7 +9,7 @@ import ('./nav.css')
 //always have sign-up as an option. 
 
 const Nav = () => {
-   
+    console.log(UserContext.brandData);
     return (
       <nav className="navbar">
     <Link className="navbarData" to="/">Home</Link>
@@ -18,8 +18,6 @@ const Nav = () => {
     <Link className="navbarData" to="/api/brands/login">Login</Link>
     <Link className="navbarData" to="/api/brands/sign-up">Sign Up</Link>
     <Link className="navbarData" to="/api/brands/logout">Logout</Link>
-    <h6 className="navbarSpan">Hey! {UserContext.name} You are now logged in!</h6>
-
       </nav>
     );
   };

@@ -2,8 +2,9 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { Col, Row, Container } from "../../components/Grid";
 import API from "../../utils/API";
-// import DataIndex from "../DataIndex";
 import ("./indexdetail.css")
+
+
 
 function IndexDetail(props) {
     const [brand, setBrand ] = useState({})
@@ -19,7 +20,7 @@ return (
         <Row>
             <Col size="md-12">
                 
-                    <h1 className="name">Welcome to {brand.name} by {brand.website}!</h1>
+                    <h1 className="name">Welcome to {this.brand.name} by {this.brand.website}!</h1>
                 
             </Col>
         </Row>
@@ -27,7 +28,7 @@ return (
             <Col size="md-12" className="profile-website">
                 <description>
                     <h3>Company Bio</h3>
-                    {brand.description}
+                    {this.brand.description}
                 </description>
             </Col>
         </Row>

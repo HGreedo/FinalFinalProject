@@ -2,6 +2,11 @@ import axios from "axios";
 
 const BRANDAPI = {
     //Gets all brands does not work when trying to get name
+
+    homePage: function() {
+        return axios.get("/");
+    },
+
     getBrands: function() {
         return axios.get("/api/brands/");
     },

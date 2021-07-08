@@ -71,7 +71,7 @@ router.post('/api/brands/sign-up', (req, res) => {
 });
 
 
-
+router.post("/")
 
 
 

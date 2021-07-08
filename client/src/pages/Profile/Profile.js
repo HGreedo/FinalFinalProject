@@ -1,31 +1,29 @@
 import React, { useContext, useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { Link } from "react-router-dom";
 import userContext from "../../utils/UserContext";
-import API from "../../utils/API";
+import BRANDAPI from "../../utils/API";
 import ("./profile.css")
 
-function Profile(props) {
 
-    const [brand, setBrand] = useState({})
-    const {name} = useContext(userContext);
 
-    const {id} = useParams()
+
+
+function Profile() {
+    const [brandData, setBrand] = useState({})
+    const {name, id} = useContext(userContext)
+
     useEffect(() => { 
-        API.getBrandById(id)
-        .then(res => setBrand(res.data))
+        BRANDAPI.getBrandById(brandData.id)
+        .then(res => setBrand(res.id))
     .catch(err => console.log(err));
-}, [id])
+},)
 
-
-
-
-
-
+console.log(BRANDAPI.getBrandById(id));
 
     return (
         <div className="profile-card">
-            <div className="name">
-                Name: {brand.name} {name}
+            <div className="name" >
+                Name: {name} {id}
             </div>
             <div className="profile-website">
                 Website: 
