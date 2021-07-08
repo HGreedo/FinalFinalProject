@@ -14,20 +14,29 @@ function Brands() {
     }, [])
 
 
-function loadBrands() {
-    API.getBrands().then(res => setBrands(res.data)).catch(err => console.log(err));
+function loadBrands() { 
+    
+    API.getBrands().then(res => { 
+        console.log(res.data)
+        setBrands(res.data)
+    })
+
+    .catch(err => console.log(err));
 };
+
+
 function deleteBrand(id) {
-    API.deleteBrand(id).then(res => loadBrands()).catch(err => console.log(err))
+    API.deleteBrand(id).then(res => (loadBrands())).catch(err => console.log(err))
 };
+
 function handleSearchChange(submit) {
     const { name, value } = submit.target;
     setFormObject({...formatObject, [name]: value})
 };
-
 function handleSearchSubmit(submit) {
     submit.preventDefault();
-    if(formatObject.name && formatObject.email) {
+    console.log(handleSearchSubmit);
+    if(formatObject.name) {
         API.saveBrand({
             name: formatObject.name,
             email: formatObject.email,
@@ -44,10 +53,12 @@ function FormBtn(props) {
     </button>
   );
   };
+
   function DeleteBtn(props) {
+
     return (
       <span className="delete-btn" {...props} role="button" tabIndex="0">
-        ✗
+        X
       </span>
     );
   }
@@ -63,30 +74,31 @@ function FormBtn(props) {
     return <li className="list-group-items">{children}</li>
 };
 
+
 return (
-    <Container  className="index"  fluid>
+    <Container  className="background" fluid>
         <Row>
             <Col size="md-6">
-            <h1>Check Out These Brands!</h1>
+            <h3 className="top-header">Check Out These Brands!</h3>
                
-                <form>
-            <input onChange={handleSearchChange} name="name" placeholder="Search By Name" />
+                <form className="search-form">
+            <input className="input" onChange={handleSearchChange} name="name" placeholder="Search By Name" />
 
             <FormBtn disabled={!(formatObject.name)} onClick={handleSearchSubmit}>Click Here to Search </FormBtn>
         </form>
             </Col>
             <Col size="md-6">
-            <h1>Brand List</h1>
+            <h2 className="header">Brand List</h2>
             {brands.length ? (
                 <List className="brand-list">
                     {brands.map(brand => (
-                        <ListItems className="brand-items" key={brand.id}>
-                        <Link to={"/api/brands/:id" + brand.id}>
-                                <strong>
+                        <ListItems className="brand-items" key={brand._id}>
+                        <Link to={"/api/brands/" + brand._id}>
+                                <strong className="brand-children">
                                     {brand.name} by {brand.website}
                                 </strong>
                         </Link>
-                        <DeleteBtn onClick={() => deleteBrand(brand.id)} />
+                        <DeleteBtn onClick={() => deleteBrand(brand._id)} />
                         </ListItems>
                     ))}
                 </List>
@@ -98,5 +110,6 @@ return (
     </Container>
     );
 }
+
 export default Brands;
 

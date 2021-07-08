@@ -1,13 +1,34 @@
 .delete-btn{
+    display: flex;
+    float: right;
+    background-color: palevioletred;
+    border-radius: 2px solid black;
+    font-weight: 800;
+    color: black;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: pointer;
+}
+.delete-btn:hover{
+    background-color: green;
+}
 
+.delete-btn::after{
+    background-color: black;
 }
 .search-button{
-cursor: crosshair;
+cursor: pointer;
 background-color: coral;
 color: black;
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-float: "right"
+float: "right";
+margin-left: 30px;
+box-shadow: -2px 2px slategray;
 }
+.search-button:hover {
+    background-color: purple;
+    color: orangered;
+}
+
 .h1 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
@@ -22,4 +43,47 @@ float: "right"
    flex-direction: column;
    -ms-flex-align: center;
    padding-inline-start: 100px;
+}
+.brand-children{
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px;
+    font-size: 24px;
+    border-radius: 2px;
+    border-bottom: solid black;
+    background-color: ivory;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 10px;
+    padding-top: 5px;
+    box-shadow: -3px 3px slategray;
+}
+.top-header {
+    margin-top: 30px
+}
+.header {
+margin-top: 40px;
+margin-left: 50px;
+margin-bottom: 20px;
+padding-left: 10px;
+width: 300px;
+}
+
+.search-form{
+margin-left: 50px;
+
+}
+.h2 header {
+margin-top: 60px;
+font-weight: 800;
+margin-right: 30px;
+
+}
+.input {
+    background-color: ivory;
+    width: 200px;
+    margin-right: 50px;
+}
+.background {
+    background-color: snow;
 }

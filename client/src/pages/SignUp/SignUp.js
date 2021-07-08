@@ -11,6 +11,9 @@ function SignUp() {
     //     loadBrands()
     //   }, [brands])
 
+
+
+
     function loadBrands() {
         API.getBrands()
           .then(res => 
@@ -25,7 +28,6 @@ function handleInputChange(submit) {
     setFormObject({...formObject, [name]: value})
 };
 
-
 function handleFormSubmit(submit) {
     submit.preventDefault();
     if (formObject.name && formObject.password) {
@@ -35,8 +37,14 @@ function handleFormSubmit(submit) {
     website: formObject.website,
     description: formObject.description,
     email: formObject.email,
-    password: formObject.password
+    password: formObject.password,
+
+    //what do i need to do around this id key?
+    // id: 
+
+
     })
+    
     .then(res => loadBrands())
         .catch(err => console.log(err));
         console.log(handleFormSubmit);
@@ -44,9 +52,11 @@ function handleFormSubmit(submit) {
 
 };
 return(
+    <div className="background">
     <div className="sign-up-card">
-        <h1>Please Fill Out Your Details to Enjoy the Full Experience of OFBC</h1>
+        <h1 className="signup-header">Please Fill Out Your Details to Enjoy the Full Experience of OFBC</h1>
         <br/>
+        <p className="p">Please be sure to fill out all accurate information so that other Brands and Boutiques can accurately connect with you!</p>
         <form className="signup-form">
             <input onChange={handleInputChange} type="text" placeholder = "Name" name = "name" />
             <input onChange={handleInputChange} type="text" placeholder = "Address" name = "address" />
@@ -61,6 +71,7 @@ return(
                 Submit Brand
               </button>
         </form>
+    </div>
     </div>
     );
 

@@ -1,10 +1,7 @@
 const router = require("express").Router();
 const  Brand  = require("../models/brandindex");
 const signInLogIn = require("../config/signinLogin"); 
-const indexGetAll = require("../config/indexGetAll");
-
-const brandLogin = signInLogIn.brandLogin;
-
+// const indexGetAll = require("../config/indexGetAll");
 
 // const  newBrand = require("../models/brandindex");
 //works
@@ -16,6 +13,9 @@ const brandLogin = signInLogIn.brandLogin;
 //     .then(() => res.json("New Brand Created!"))
 //     .catch(err => res.status(400).json("Error: " + err))
 // });
+
+
+
 
 //works
 router.put('/api/brandindex/:id', ({ body, params }, res) => {
@@ -31,7 +31,7 @@ router.put('/api/brandindex/:id', ({ body, params }, res) => {
     });
 });
 
-//working returns brands 
+//working returns brands //still works
 router.get('/api/brands', (req, res) => {
     console.log("found brand");
     Brand.find({}) 
@@ -41,6 +41,7 @@ router.get('/api/brands', (req, res) => {
     });
 });
 
+//returns err
 router.get('/api/brands/nameSort', (req, res) => {
     Brand.aggregate([
         {
@@ -53,7 +54,7 @@ router.get('/api/brands/nameSort', (req, res) => {
 });
 
 //
-router.delete('api/brands/delete', (req, res) => {
+router.delete('/api/brands/:id', (req, res) => {
     Brand.findByIdAndDelete(req.params.id).then(() => {
         res.json(true);
     })
@@ -63,20 +64,22 @@ router.delete('api/brands/delete', (req, res) => {
 });
 
 
-//working on this 
+//working on this //works from browser
 router.post('/api/brands/sign-up', (req, res) => {
+    console.log(req.body)
     Brand.create(req.body).then(admin => res.json(admin));
-    // console.log(admin)
 });
+
+
+router.post("/")
+
+
 
 router.post('/api/brands/login', (req, res) => {
+    console.log(req.body);
     Brand.findOne(req.brandLogin).then(admin => res.json(admin));
-    console.log(findOne.res);
 });
-//This is where you shouuld create a function for logging-out "POST"
-
-//this route returns brand by id in the index search
-router.route('api/brands/idSort').get(indexGetAll.findById)
 
 
 module.exports = router;
+

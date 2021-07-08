@@ -22,7 +22,7 @@ mongoose.connect("mongodb://localhost:27017/admin", {
 });
 
 
-app.use(routes2, routes1, routes);
+app.use(routes, routes1, routes2);
 // Start the API server
 app.listen(PORT, function() {
   console.log(`🌎  ==> API Server now listening on PORT ${PORT}!`);

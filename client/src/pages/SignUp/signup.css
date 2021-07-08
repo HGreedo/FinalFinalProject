@@ -3,12 +3,13 @@ border-radius: 2px;
 border: solid slategray;
 background-color: snow;
 font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-height: 600px;
+height: 900px;
 width: 80%;
 cursor: pointer;
 align-items: center;
 padding: 50px;
 margin-left: 150px;
+padding-bottom: 50px;
 }
 .signup-form{
     display: flex;
@@ -16,8 +17,19 @@ margin-left: 150px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     border: steelblue solid;
     border-radius: 1px;
+    border-bottom: none;
     padding-inline-start: 30px;
     padding-bottom: 8px;
+    padding-top: 40px;
+    padding-right: 30px;
+    height: 400px;
+    font-size: 18px;
+}
+.p {
+    background-color: snow;
+    margin-bottom: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
 }
 
 .signup-button {
@@ -28,10 +40,32 @@ margin-left: 150px;
     width: 200px;
     margin-top: 30px;
     font-size: larger;
+    padding-bottom: 50px;
+    cursor: pointer;
+}
+.signup-button:hover {
+    background-color: purple;
+    color: orangered;
+}
+.signup-button::after {
+    background-color: green;
+    color: snow;
 }
 
 .input {
     margin-top: 20px;
     margin-bottom: 20px;
     padding-bottom: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+
+.signup-header {
+    background-color: snow;
+    margin-bottom: 200px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+.background {
+    background-color: coral;
 }
