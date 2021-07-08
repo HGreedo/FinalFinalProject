@@ -14,7 +14,7 @@ const BRANDAPI = {
     },
     //Deletes brand by name
     deleteBrand: function(id) {
-        return axios.delete('api/brands/' + id);
+        return axios.delete('/api/brands/' + id);
     },
     //updates brand by id 
     updateBrand: function(id) {

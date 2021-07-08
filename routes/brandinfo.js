@@ -54,7 +54,7 @@ router.get('/api/brands/nameSort', (req, res) => {
 });
 
 //
-router.delete('api/brands/delete', (req, res) => {
+router.delete('/api/brands/:id', (req, res) => {
     Brand.findByIdAndDelete(req.params.id).then(() => {
         res.json(true);
     })

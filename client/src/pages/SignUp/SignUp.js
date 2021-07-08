@@ -28,9 +28,6 @@ function handleInputChange(submit) {
     setFormObject({...formObject, [name]: value})
 };
 
-
-
-
 function handleFormSubmit(submit) {
     submit.preventDefault();
     if (formObject.name && formObject.password) {

@@ -26,8 +26,9 @@ function loadBrands() {
 
 
 function deleteBrand(id) {
-    API.deleteBrand(id).then(res => loadBrands()).catch(err => console.log(err))
+    API.deleteBrand(id).then(res => (loadBrands())).catch(err => console.log(err))
 };
+
 function handleSearchChange(submit) {
     const { name, value } = submit.target;
     setFormObject({...formatObject, [name]: value})
@@ -52,10 +53,12 @@ function FormBtn(props) {
     </button>
   );
   };
+
   function DeleteBtn(props) {
+
     return (
       <span className="delete-btn" {...props} role="button" tabIndex="0">
-        ✗
+        X
       </span>
     );
   }

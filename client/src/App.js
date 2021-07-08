@@ -34,7 +34,9 @@ function App() {
           </Route>
           <Footer />
       </Switch>
+      <h1>Welcome to Oregon Fashion Buyer's Club</h1>
     </Router>
+
   );
 }
  

@@ -11,16 +11,7 @@ module.exports = {
      db.Brand.create(newBrand)
     .then((brand) => res.json({ 
         name: brand.name,
-
-
-
         id: brand._id,
-
-
-
-
-
-        
         isSignedIn: req.session.isSignedIn
      })
      )
