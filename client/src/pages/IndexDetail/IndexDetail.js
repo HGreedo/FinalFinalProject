@@ -9,9 +9,9 @@ import ("./indexdetail.css")
 function IndexDetail(props) {
     const [brand, setBrand ] = useState({})
 
-    const {id} = useParams()
+    const {id} = useParams(props)
     useEffect(() => {
-        API.getBrandById(id).then(res => setBrand(res.data)).catch(err => console.log(err));
+        API.getBrandById(id).then(res => setBrand(res.brand.data)).catch(err => console.log(err));
     }, [id])
 
 return (
@@ -19,7 +19,7 @@ return (
     <Container fluid>
         <Row>
             <Col size="md-12">
-                
+                {brand}
                     <h1 className="name">Welcome to {this.brand.name} by {this.brand.website}!</h1>
                 
             </Col>

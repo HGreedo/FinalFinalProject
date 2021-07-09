@@ -1,29 +1,49 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import userContext from "../../utils/UserContext";
 import BRANDAPI from "../../utils/API";
 import ("./profile.css")
 
-
-
-
-
 function Profile() {
-    const [brandData, setBrand] = useState({})
-    const {name, id} = useContext(userContext)
+    const [brandPromp] = useState({})
+    const brandData= useContext(userContext)
+   
+    // function profileCard(data) {
+    //     const {name, value } = data.target;
+    //     brandSubmission({...brandPromp, [name]: value})
+    // };
 
-    useEffect(() => { 
-        BRANDAPI.getBrandById(brandData.id)
-        .then(res => setBrand(res.id))
-    .catch(err => console.log(err));
-},)
+    function updateProfileCard(data) {
+        data.preventDefault();
+        BRANDAPI.getBrandById({
+            name: brandPromp.name,
+            website: brandPromp.website,
+            description: brandPromp.description,
+            email: brandPromp.email
+        }).then(res => {
+            if(res.data.loggedin === true) {
+                const id = res.data.id
+                brandData.onUpdate('api/brandLogin'+id)
+                console.log(res.data)
+                localStorage.getItem('brandData', res.data.id)
+                console.log(updateProfileCard(data));
+            }
+        })
+    }
 
-console.log(BRANDAPI.getBrandById(id));
+//     useEffect(() => { 
+//         BRANDAPI.getBrandById(id)
+//         .then(res => setBrand(...brandData.id))
+//     .catch(err => console.log(err));
+// },)
+
 
     return (
-        <div className="profile-card">
-            <div className="name" >
-                Name: {name} {id}
+        
+        <div className="profile-card" onChange={updateProfileCard}>
+           
+            <div className="name">
+                Name: {brandData.name}
             </div>
             <div className="profile-website">
                 Website: 

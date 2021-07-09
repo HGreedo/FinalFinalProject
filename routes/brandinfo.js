@@ -81,5 +81,10 @@ router.post('/api/brands/login', (req, res) => {
 });
 
 
+router.post('/api/brands/logout', (req,res) => {
+    console.log(req.body);
+    Brand.findOne(req.logout).then()
+})
+
 module.exports = router;
 

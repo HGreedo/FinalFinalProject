@@ -8,9 +8,9 @@ import Footer from "./components/Footer";
 import Profile from "./pages/Profile/Profile";
 import Dataindex from "./pages/DataIndex/DataIndex";
 import IndexDetail from './pages/IndexDetail/IndexDetail';
-import Home from "./pages/Home";
+import Home from "./pages/Home/Home";
 import Logout from "./pages/Logout";
-
+import UpdateProfile from "./pages/Profile/UpdateProfile"
 function App() {
   return (
     <Router> 
@@ -41,7 +41,12 @@ function App() {
           <Route exact path = {["api/brands/:id" ]}>
             <IndexDetail/>
           </Route>
+          <Route exact path={["/api/brandindex/UpdateProfile"]}>
 
+            <UpdateProfile/>
+          </Route>
+
+        
 
 
 
