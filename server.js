@@ -5,7 +5,7 @@ const routes1 = require("./routes/brandinfo");
 const routes2 = require("./routes/boutiqueinfo");
 
 const app = express();
-const PORT = 3001;
+const PORT = process.env.PORT || 3001;
 
 // Define middleware here
 app.use(express.urlencoded({ extended: true }));
