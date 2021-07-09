@@ -15,7 +15,7 @@ app.use(express.static("client"));
 
 
 // Connect to the Mongo DB
-mongoose.connect("mongodb://localhost:27017/admin", {
+mongoose.connect(process.env.MONGODB_URI ||"mongodb://localhost:27017/admin", {
   useNewUrlParser: true,
   useFindAndModify: false,
   useUnifiedTopology: true,
