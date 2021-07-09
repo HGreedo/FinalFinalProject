@@ -1,0 +1,29 @@
+.home-card {
+margin-top: 30px;
+display: flex;
+flex-direction: column;
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+margin-left: 50px;
+margin-right: 50px;
+}
+.header-card {
+    margin-top: 20px;
+    font-size: 30px;
+    align-content: center;
+    border-radius: 1px;
+    border-bottom: solid black;
+    width: 500px;
+}
+.home-info{
+margin-top: 20px;
+}
+.home-footer {
+    font-style: italic;
+    justify-content: right;
+}
+.message {
+    justify-self: center;
+    margin-top: 80px;
+    display: flex;
+    margin-inline-end: 10px;
+}

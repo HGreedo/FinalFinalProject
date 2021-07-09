@@ -3,3 +3,9 @@
 // import userContext from "../../utils/UserContext";
 // import API from "../../utils/API";
 
+function UpdateProfile(){
+    return (
+        <h1>Update Profile Page</h1>
+    );
+}
+export default UpdateProfile;
