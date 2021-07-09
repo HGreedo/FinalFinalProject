@@ -4,6 +4,7 @@
   "description": "an encrypted website where small brands are able to connect with boutiques",
   "main": "server.js",
   "engines": {
+    "node": "14.16.0",
     "npm": "6.x"
   },
   "repository": {
@@ -21,7 +22,7 @@
     "mongoose": "^5.12.13",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.2.0",
-    "react-scripts": "3.4.3"
+    "react-scripts": "4.0.3"
   },
   "keywords": [
     "node.js",
